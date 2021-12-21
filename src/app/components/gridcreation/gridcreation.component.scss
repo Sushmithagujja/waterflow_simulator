@@ -1,0 +1,53 @@
+.range {
+    height: 50px;
+
+    input[type="range"] {
+        position: relative;
+        top: -10px;
+    }
+}
+
+.obsta {
+    background: grey;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    width: 60px;
+    padding: 10px 5px;
+    float: right;
+}
+
+.drappable {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    &.header {
+        background-color: lightblue;
+    }
+    &.flowsimulator {
+        background-color: blue;
+        opacity: 0;
+        animation-name: fadeIn;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    .obsta {
+        margin: 0;
+    }
+}
+table {
+    margin: 0 auto;
+    td {
+        padding: 1px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

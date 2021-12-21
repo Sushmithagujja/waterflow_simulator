@@ -1,0 +1,63 @@
+<br>
+<div class="container" >
+<div *ngIf="!showtable">
+    <form class="form" [formGroup]="gridForm" (ngSubmit)="onSubmit()">
+        <div class="range">
+            1<input class="range__slider" id="sliderrows" max="10" min="0" 
+            oninput="countrow.value=sliderrows.value"
+            type="range" formControlName="rowvalue">10
+            <input class="range__amount" id="countrow"  value="5"
+            oninput="sliderrows.value=countrow.value" type="text">
+    
+        </div>
+        <div class="range">
+            1<input class="range__slider" id="slidercolumns" max="10" min="0"
+                oninput="countcolumn.value=slidercolumns.value" type="range"
+                formControlName="columnvalue">10
+            <input class="range__amount" id="countcolumn"  value="5"
+            oninput="slidercolumns.value=countcolumn.value" type="text" >
+        </div>
+        <div class="range">
+            1<input class="range__slider" id="sliderobstructions" max="10" min="0"
+                oninput="countobstruction.value=sliderobstructions.value" type="range" 
+                formControlName="obstructionvalue">10
+            <input class="range__amount" id="countobstruction"  value="5"
+            oninput="sliderobstructions.value=countobstruction.value" type="text">
+        </div>
+    
+        <button type="submit">Next</button>
+    
+    </form>
+</div>
+
+
+<div class="row" *ngIf="showtable">
+    <div class="col-sm-10">
+        <table id="tablesimulator" class="table table-bordered" [ngStyle]="{'width': tableWidth + 'px', 'height': tableHeight + 'px'}" >
+            <tbody>
+                <tr>
+                    <td *ngFor="let tableHeader of tableHeaders;let idx = index;">
+                        <div (click)="startFlow(idx)" [id]="'header-' + idx" class="drappable header">
+                            &nbsp;
+                        </div>
+                    </td>
+                </tr>
+                <tr *ngFor="let row of tablearr;let index = index;">
+                    <td *ngFor="let column of row" [id]="column.id" (drop)="drop($event)" (dragover)="allowDrop($event)">
+                        <div class="drappable" >
+                            &nbsp;                  
+                        </div>
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-2">
+        <div *ngFor="let obsta of obstacles" [id]="obsta.id" class="obsta" [ngClass]="obsta.id" draggable="true" (dragstart)="drag($event)">{{obsta.id}}</div>
+    </div>
+    <div class="col-sm-12">
+        <button class="btn btn-primary mr-2" (click)="reset()">Reset</button>
+        <button class="btn btn-primary ml-2" (click)="start()">Start Simulation</button>
+    </div>
+</div>
+</div>
