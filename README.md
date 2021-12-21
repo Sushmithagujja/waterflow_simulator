@@ -1,5 +1,4 @@
 # Screenshot
-![waterflow simulator](https://github.com/Sushmithagujja/waterflow_simulator/blob/main/waterflowsimulatore.jpg)
 ![waterflow simulator](waterflowsimulatore.jpg)
 
 # Waterflowsimulator
