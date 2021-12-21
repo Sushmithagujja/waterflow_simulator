@@ -1,3 +1,6 @@
+# Screenshot
+![waterflow simulator](https://github.com/Sushmithagujja/waterflow_simulator/edit/main/waterflowsimulatore.jpg)
+
 # Waterflowsimulator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
